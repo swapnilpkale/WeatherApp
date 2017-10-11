@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="search_button_text">Search</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="search_city_hint">Search City</string>
+    <string name="default_location">Detroit</string>
+    <string name="shared_pref_location_key">SharedPrefLocationKey</string>
+    <string name="error_message">Error while fetching the data from Server. Please try again some time.</string>
+    <string name="last_updated_at">Last Updated At :</string>
+</resources>

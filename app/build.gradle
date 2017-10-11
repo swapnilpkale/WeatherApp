@@ -1,0 +1,63 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "26.0.2"
+    defaultConfig {
+        applicationId "com.project.swapnil.weather"
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug{
+            buildConfigField("String", "BASE_URL", "\"http://api.openweathermap.org/data/2.5/\"")
+            buildConfigField("String", "API_KEY", "\"a2bb5ab70e0851015df5ab47a7aa40e7\"")
+            buildConfigField("String", "IMAGE_RESOUCE_BASE_URL", "\"http://openweathermap.org/img/w/\"")
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", "\"http://api.openweathermap.org/data/2.5/weather\"")
+            buildConfigField("String", "API_KEY", "\"a2bb5ab70e0851015df5ab47a7aa40e7\"")
+            buildConfigField("String", "IMAGE_RESOUCE_BASE_URL", "\"http://openweathermap.org/img/w/\"")
+        }
+    }
+}
+
+dependencies {
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:support-v4:24.2.1'
+    testCompile 'junit:junit:4.12'
+
+//    // image
+    compile 'com.github.bumptech.glide:glide:3.8.0'
+
+    def daggerVer = 2.11
+
+    compile "com.google.dagger:dagger:$daggerVer"
+    compile "com.google.dagger:dagger-android-support:$daggerVer"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVer"
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVer"
+
+    // reactive
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+
+
+    // code generator for view
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+
+
+    // Required -- JUnit 4 framework
+    testCompile 'junit:junit:4.12'
+    // Optional -- Mockito framework
+    testCompile 'org.mockito:mockito-core:1.10.19'
+}
